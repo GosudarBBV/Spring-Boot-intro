@@ -21,10 +21,10 @@ public class StringBootIntroApplication {
 	public CommandLineRunner commandLineRunner() {
 		return args -> {
 			Book book1 = new Book();
-			book1.setAuthor("Kotlara");
+			book1.setAuthor("Kotlaras");
 			book1.setPages(222);
 			bookService.save(book1);
-			System.out.printf("Lol", bookService.findAll());
+			System.out.printf("info", bookService.findAll());
 
 		};
 	}
