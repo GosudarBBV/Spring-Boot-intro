@@ -22,9 +22,11 @@ public class StringBootIntroApplication {
         return args -> {
             Book book1 = new Book();
             book1.setAuthor("Kotlaras");
+            book1.setTitle("Morskit");
 
             Book book2 = new Book();
             book2.setAuthor("Szelw");
+            book2.setTitle("AI");
 
             bookService.save(book1);
             bookService.save(book2);
