@@ -23,8 +23,13 @@ public class StringBootIntroApplication {
 			Book book1 = new Book();
 			book1.setAuthor("Kotlaras");
 			book1.setPages(222);
+
+			Book book2 = new Book();
+			book2.setAuthor("Szelw");
+			book2.setPages(115);
 			bookService.save(book1);
-			System.out.printf("info", bookService.findAll());
+			bookService.save(book2);
+			System.out.println(bookService.findAll());
 
 		};
 	}
