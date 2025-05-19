@@ -10,28 +10,27 @@ import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 public class StringBootIntroApplication {
-	@Autowired
-	private BookService bookService;
+    @Autowired
+    private BookService bookService;
 
-	public static void main(String[] args) {
-		SpringApplication.run(StringBootIntroApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(StringBootIntroApplication.class, args);
+    }
 
-	@Bean
-	public CommandLineRunner commandLineRunner() {
-		return args -> {
-			Book book1 = new Book();
-			book1.setAuthor("Kotlaras");
-			book1.setPages(222);
+    @Bean
+    public CommandLineRunner commandLineRunner() {
+        return args -> {
+            Book book1 = new Book();
+            book1.setAuthor("Kotlaras");
 
-			Book book2 = new Book();
-			book2.setAuthor("Szelw");
-			book2.setPages(115);
-			bookService.save(book1);
-			bookService.save(book2);
-			System.out.println(bookService.findAll());
+            Book book2 = new Book();
+            book2.setAuthor("Szelw");
 
-		};
-	}
+            bookService.save(book1);
+            bookService.save(book2);
+            System.out.println(bookService.findAll());
+
+        };
+    }
 
 }

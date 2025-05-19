@@ -1,55 +1,18 @@
 name: Java CI
 
-on:
-  - push
-  - pull_request_target
+on: [push, pull_request]
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
-    services:
-      mysql:
-        image: mysql:8.0
-        env:
-          MYSQL_ROOT_PASSWORD: Nero0410
-          MYSQL_DATABASE: book_database
-        options: >-
-          --health-cmd="mysqladmin ping -h 127.0.0.1 --silent"
-          --health-interval=10s
-          --health-timeout=5s
-          --health-retries=5
-
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v2
+      - name: Set up JDK 21
+        uses: actions/setup-java@v2
         with:
-          ref: ${{ github.event.pull_request.head.ref }}
-          repository: ${{ github.event.pull_request.head.repo.full_name }}
-
-      - name: Wait for MySQL to be ready
-        run: |
-          for i in {1..30}; do
-            mysql -h 127.0.0.1 -uroot -pNero0410 -e "SELECT 1" && break
-            echo "Waiting for MySQL..."
-            sleep 2
-          done
-
-      - name: Set up JDK 17
-        uses: actions/setup-java@v4
-        with:
-          java-version: '17'
-          distribution: 'temurin'
+          java-version: '21'
+          distribution: 'adopt'
           cache: maven
-
       - name: Build with Maven
         run: mvn --batch-mode --update-snapshots verify
-
-      - uses: mate-academy/auto-approve-action@v2
-        if: ${{ github.event.pull_request && success() }}
-        with:
-          github-token: ${{ github.token }}
-
-      - uses: mate-academy/auto-reject-action@v2
-        if: ${{ github.event.pull_request && failure() }}
-        with:
-          github-token: ${{ github.token }}
