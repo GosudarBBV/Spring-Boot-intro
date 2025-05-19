@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="9.3">
+<file name="D:\mate_academy\string.boot\src\main\java\mate\academy\string\boot\model\Book.java">
+</file>
+<file name="D:\mate_academy\string.boot\src\main\java\mate\academy\string\boot\repository\BookRepository.java">
+</file>
+<file name="D:\mate_academy\string.boot\src\main\java\mate\academy\string\boot\repository\BookRepositoryImpl.java">
+</file>
+<file name="D:\mate_academy\string.boot\src\main\java\mate\academy\string\boot\service\BookService.java">
+</file>
+<file name="D:\mate_academy\string.boot\src\main\java\mate\academy\string\boot\service\BookServiceImpl.java">
+</file>
+<file name="D:\mate_academy\string.boot\src\main\java\mate\academy\string\boot\StringBootIntroApplication.java">
+</file>
+<file name="D:\mate_academy\string.boot\src\main\resources\application.properties">
+</file>
+<file name="D:\mate_academy\string.boot\src\test\resources\application.properties">
+</file>
+</checkstyle>
