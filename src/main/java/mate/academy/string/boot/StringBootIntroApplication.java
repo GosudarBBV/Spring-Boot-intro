@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 public class StringBootIntroApplication {
+
     @Autowired
     private BookService bookService;
 
@@ -31,7 +32,6 @@ public class StringBootIntroApplication {
             bookService.save(book1);
             bookService.save(book2);
             System.out.println(bookService.findAll());
-
         };
     }
 }
